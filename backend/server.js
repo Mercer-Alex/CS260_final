@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/heywow', {
-  useNewUrlParser: true
-});
+const dbURL = 'mongodb://localhost/heywow';
+mongoose.connect(dbURL);
+
 
 app.listen(2600, () => console.log('Server listening on port 2600!'));
