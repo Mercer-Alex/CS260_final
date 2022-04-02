@@ -6,12 +6,13 @@
       <router-link to="/add"><i class="fa-solid fa-plus"></i></router-link>
       <router-link to="/about"><i class="fa-solid fa-circle-info"></i></router-link> 
       <router-link to="/user"><i class="fa-solid fa-user"></i></router-link>
+      <i class="fa-solid fa-briefcase"></i>
     </nav>
     <router-view/>
     <footer id="fixed" class="footer-styles">
       <a href="https://github.com/Mercer-Alex/heyWow" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>   
       <a href="https://www.linkedin.com/in/mercer-alex/" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>   
-      <a href="mailto:a.mercer118@gmail.com" rel="noopener" target="_blank"><i class="fa-solid fa-envelope"></i></a>       
+      <a href="https://alexmercer.net/" rel="noopener" target="_blank"><i class="fa-solid fa-user-astronaut"></i></a>       
     </footer>
   </div>
 </template>
