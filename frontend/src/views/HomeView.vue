@@ -7,13 +7,16 @@
           <p>{{ update.update }}</p>
           <p>{{ update.contact }}</p>
         </div>
+        <div class="actions">
+          <button @click="deleteUpdate(update)">Delete</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "HomeView",
   data() {
@@ -34,7 +37,17 @@ export default {
         console.log(error);
       }
     },
-  }
+    async deleteUpdate(update) {
+      try {
+        await axios.delete("/api/update/" + update._id);
+        this.findUpdate = null;
+        this.getUpdates();
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>
 
@@ -54,5 +67,14 @@ export default {
   border-bottom: solid black 1px;
   padding: 5px;
   padding-bottom: 10px;
+}
+button {
+  background: #7f6085;
+  border-radius: 4px;
+  border: none;
+  color: #121212;
+}
+button:hover {
+  background: #af8eb5;
 }
 </style>

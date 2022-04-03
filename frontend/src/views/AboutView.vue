@@ -18,7 +18,7 @@
 }
 .background {
   height: 90vh;
-  background-image: url(../assets/logo.png);
+  /* background-image: url(../assets/logo.png); */
   
 }
 .description {

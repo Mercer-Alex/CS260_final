@@ -37,7 +37,6 @@ app.post('/api/update', async (req, res) => {
     }
 });
 
-
 app.get('/api/update', async (req, res) => {
     try {
         let updates = await Update.find();
@@ -47,5 +46,18 @@ app.get('/api/update', async (req, res) => {
         res.sendStatus(500);
     }
 });
+
+app.delete('/api/update/:id', async (req, res) => {
+    try {
+      await Update.deleteOne({
+        _id: req.params.id
+      });
+      res.sendStatus(200);
+    }
+    catch (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+  });
 
 app.listen(2600, () => console.log('Server listening on port 2600!'));
