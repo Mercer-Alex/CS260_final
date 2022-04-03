@@ -1,35 +1,36 @@
 <template>
-<div class="add-post">
-    <div class="post-header">
-        <span><h3>Create a post:</h3></span>
+<div class="add-update">
+    <div class="update-header">
+        <span><h3>Create a update:</h3></span>
         <p>Add your name, and then write what you do, what you want people to know, or just how you feel</p>
         <p>Include your contact info if you want people to reach out to you</p>
     </div>
     
-  <form class="post-form" v-if="creating" @submit.prevent="addPost">
-    <input class="post-name" v-model="name" placeholder="Name">
+  <form class="update-form" v-if="creating" @submit.prevent="addUpdate">
+    <input class="update-name" v-model="name" placeholder="Name">
     <p></p>
-    <textarea class="post-content" v-model="post" placeholder="type here"></textarea>
+    <textarea class="update-content" v-model="update" placeholder="type here"></textarea>
     <br />
-    <input class="post-contact" v-model="contact" placeholder="contact">
+    <input class="update-contact" v-model="contact" placeholder="contact">
     <br>
-    <button class="post-submit" type="submit">Submit</button>
+    <button class="update-submit" type="submit">Submit</button>
   </form>
   <div v-else>
-    <p>Thank you for submitting a post!</p>
-    <p><a @click="toggleForm" href="#">Post something else</a></p>
+    <p>Thank you for submitting an update!</p>
+    <p><a @click="toggleForm" href="#">Add something else?</a></p>
   </div>
 </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'AddPost',
+  name: 'AddUpdate',
   data() {
     return {
       creating: true,
       name: '',
-      post: '',
+      update: '',
       contact: '',
     }
   },
@@ -37,13 +38,20 @@ export default {
     toggleForm() {
       this.creating = !this.creating;
     },
-    addPost() {
-      this.$root.$data.addPost(this.name, this.post, this.contact);
-      this.name = "";
-      this.post = "";
-      this.contact= "";
+    async addUpdate() {
+      try {
+        let r1 = await axios.post("/api/update", {
+          name: this.name,
+          update: this.update,
+          contact: this.contact,
+        });
+         this.addItem = r1.data;
+      }
+      catch(error) {
+        console.log(error);
+      }
       this.creating = false;
-    },
+    }
   }
 }
 </script>
@@ -84,20 +92,20 @@ button {
 button:hover {
     background-color: #af8eb5;
 }
-.add-post {
+.add-update {
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
     justify-content: center;
 }
-.post-header {
+.update-header {
     font-size: 25px;
     margin: 15px;
     padding: 15px;
     background: #e1bee709;
     color:#cecece;
 }
-.post-form {
+.update-form {
     display: grid;
     justify-content: center;
     align-content: center;

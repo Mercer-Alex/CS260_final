@@ -6,24 +6,24 @@ Vue.config.productionTip = false
 
 let data = {
   currentID: 2,
-  posts: [{
+  update: [{
     id: 1,
     text: 'I hefe-a a nuo restuoruont zeet hes zee-a best meetbells! Bork Bork Bork!',
     name: 'Swedish Chef',
     contact: '555-555-bork'
   }],
-  getPosts() {
-    return this.posts;
+  getUpdate() {
+    return this.update;
   },
-  addPost(name, text, contact) {
-    this.posts.push({
+  addUpdate(name, text, contact) {
+    this.update.push({
       id: this.currentID,
       name: name,
       text: text,
       contact: contact,
     });
     this.currentID += 1;
-  }
+  },
 }
 
 new Vue({

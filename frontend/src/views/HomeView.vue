@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <div v-for="post in posts" v-bind:key="post.id">
-      <div class="post">
+    <div v-for="update in updates" v-bind:key="update.id">
+      <div class="update">
         <div class="text">
-          <p class="user-name">{{ post.name }}</p>
-          <p>{{ post.text }}</p>
-          <p>{{ post.contact }}</p>
+          <p class="user-name">{{ update.name }}</p>
+          <p>{{ update.update }}</p>
+          <p>{{ update.contact }}</p>
         </div>
       </div>
     </div>
@@ -13,17 +13,29 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   data() {
-    return {}
+    return {
+      updates: [],
+    };
   },
-  computed: {
-    posts() {
-      return this.$root.$data.getPosts();
-    }
+  created() {
+    this.getUpdates();
+  },
+  methods: {
+    async getUpdates() {
+      try {
+        let response = await axios.get("/api/update");
+        this.updates = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   }
-}
+};
 </script>
 
 <style scoped>
@@ -31,12 +43,11 @@ export default {
   width: calc(100% - 30%);
   margin: auto;
 }
-.post {
+.update {
   background-color: #e1bee710;
   padding: 15px;
   margin: 15px;
   border-radius: 4px;
-  
 }
 .user-name {
   justify-self: flex-start;

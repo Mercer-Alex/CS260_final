@@ -4,9 +4,9 @@
     <nav> 
       <router-link to="/"><i class="fa-solid fa-house-chimney"></i></router-link> 
       <router-link to="/add"><i class="fa-solid fa-plus"></i></router-link>
+      <router-link to="/work"><i class="fa-solid fa-briefcase"></i></router-link>
       <router-link to="/about"><i class="fa-solid fa-circle-info"></i></router-link> 
       <router-link to="/user"><i class="fa-solid fa-user"></i></router-link>
-      <i class="fa-solid fa-briefcase"></i>
     </nav>
     <router-view/>
     <footer id="fixed" class="footer-styles">

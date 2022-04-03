@@ -23,8 +23,14 @@ const routes = [
   {
     path: '/add',
     name: 'add',
-    component: () => import('../views/AddPost.vue')
+    component: () => import('../views/AddUpdate.vue')
+  },
+  {
+    path: '/work',
+    name: '/work',
+    component: () => import('../views/WorkPosted.vue')
   }
+
 ]
 
 const router = new VueRouter({
