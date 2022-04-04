@@ -4,36 +4,17 @@
     <nav>
       <a href="/"><img src="./images/hwLogo.png" alt="logo" /></a>
       <div class="nav-icons">
-        <router-link to="/"
-          ><i class="fa-solid fa-house-chimney"></i
-        ></router-link>
+        <router-link to="/"><i class="fa-solid fa-house-chimney"></i></router-link>
         <router-link to="/add"><i class="fa-solid fa-plus"></i></router-link>
-        <router-link to="/work"
-          ><i class="fa-solid fa-briefcase"></i
-        ></router-link>
-        <router-link to="/about"
-          ><i class="fa-solid fa-circle-info"></i
-        ></router-link>
+        <router-link to="/work"><i class="fa-solid fa-briefcase"></i></router-link>
         <router-link to="/user"><i class="fa-solid fa-user"></i></router-link>
       </div>
     </nav>
     <router-view />
     <footer id="fixed" class="footer-styles">
-      <a
-        href="https://github.com/Mercer-Alex/heyWow"
-        rel="noopener"
-        target="_blank"
-        ><i class="fa-brands fa-github"></i
-      ></a>
-      <a
-        href="https://www.linkedin.com/in/mercer-alex/"
-        rel="noopener"
-        target="_blank"
-        ><i class="fa-brands fa-linkedin-in"></i
-      ></a>
-      <a href="https://alexmercer.net/" rel="noopener" target="_blank"
-        ><i class="fa-solid fa-user-astronaut"></i
-      ></a>
+      <a href="https://github.com/Mercer-Alex/heyWow" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/mercer-alex/" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://alexmercer.net/" rel="noopener" target="_blank"><i class="fa-solid fa-user-astronaut"></i></a>
     </footer>
   </div>
 </template>
@@ -69,7 +50,6 @@ nav {
   justify-content: space-around;
   align-items: center;
   font-size: 25px;
-
 }
 
 nav a {
@@ -109,4 +89,5 @@ footer a {
   left: 0;
   right: 0;
 }
+
 </style>
